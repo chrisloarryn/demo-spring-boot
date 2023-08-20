@@ -33,7 +33,7 @@ class FakeDataDaoTest {
         assertThat(user.getAge()).isEqualTo(27);
         assertThat(user.getFirstName()).isEqualTo("Joe");
         assertThat(user.getLastName()).isEqualTo("Jones");
-        assertThat(user.getGender()).isEqualTo(User.Gender.Male);
+        assertThat(user.getGender()).isEqualTo(User.Gender.MALE);
         assertThat(user.getEmail()).isEqualTo("chrisloarryn@gmail.com");
         assertThat(user.getId()).isNotNull();
         assertThat(user.getId()).isInstanceOf(java.util.UUID.class);
@@ -46,7 +46,7 @@ class FakeDataDaoTest {
                 annaUserUid,
                 "Anna",
                 "Montana",
-                User.Gender.Female,
+                User.Gender.FEMALE,
                 30,
                 "anna.montana@gmail.com"
         );
@@ -76,7 +76,7 @@ class FakeDataDaoTest {
                 joeUserUid,
                 "Anna",
                 "Montana",
-                User.Gender.Female,
+                User.Gender.FEMALE,
                 30,
                 "anna.montana@gmail.com"
         );
@@ -89,7 +89,7 @@ class FakeDataDaoTest {
 
         assertThat(user.get().getFirstName()).isEqualTo("Anna");
         assertThat(user.get().getLastName()).isEqualTo("Montana");
-        assertThat(user.get().getGender()).isEqualTo(User.Gender.Female);
+        assertThat(user.get().getGender()).isEqualTo(User.Gender.FEMALE);
         assertThat(user.get().getAge()).isEqualTo(30);
         assertThat(user.get().getEmail()).isEqualTo("anna.montana@gmail.com");
     }
@@ -121,7 +121,7 @@ class FakeDataDaoTest {
                 userUid,
                 "Anna",
                 "Montana",
-                User.Gender.Female,
+                User.Gender.FEMALE,
                 30,
                 "anna.montana@gmail.com"
         );

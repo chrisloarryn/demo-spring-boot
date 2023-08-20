@@ -18,7 +18,7 @@ public class FakeDataDao implements UserDao {
                         joeUserUid,
                         "Joe",
                         "Jones",
-                        User.Gender.Male,
+                        User.Gender.MALE,
                         27,
                         "chrisloarryn@gmail.com"
                 )

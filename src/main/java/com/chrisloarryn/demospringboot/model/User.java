@@ -1,5 +1,7 @@
 package com.chrisloarryn.demospringboot.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class User {
@@ -10,7 +12,14 @@ public class User {
     private final Integer age;
     private final String email;
 
-    public User(UUID id, String firstName, String lastName, Gender gender, Integer age, String email) {
+    public User(
+            @JsonProperty("id") UUID id,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName,
+            @JsonProperty("gender") Gender gender,
+            @JsonProperty("age") Integer age,
+            @JsonProperty("email") String email
+    ) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,7 +69,7 @@ public class User {
     }
 
     public enum Gender {
-        Male,
-        Female
+        MALE,
+        FEMALE
     }
 }
