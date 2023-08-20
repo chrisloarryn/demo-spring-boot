@@ -3,7 +3,7 @@ package com.chrisloarryn.demospringboot.model;
 import java.util.UUID;
 
 public class User {
-    private final UUID id;
+    private UUID id;
     private final String firstName;
     private final String lastName;
     private final Gender gender;
@@ -17,6 +17,10 @@ public class User {
         this.gender = gender;
         this.age = age;
         this.email = email;
+    }
+
+    public void setUserUid(UUID userUid) {
+        this.id = userUid;
     }
 
     public UUID getId() {

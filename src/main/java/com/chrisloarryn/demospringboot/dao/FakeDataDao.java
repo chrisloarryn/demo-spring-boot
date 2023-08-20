@@ -37,13 +37,13 @@ public class FakeDataDao implements UserDao {
 
     @Override
     public int updateUser(User user) {
-        // if user is updated return 1, else return -1
+        // if a user is updated return one, else return -1
         return database.put(user.getId(), user) == null ? -1 : 1;
     }
 
     @Override
     public int deleteUserByUserUid(UUID id) {
-        // if user is deleted return 1, else return -1
+        // if a user is deleted return 1, else return -1
         return database.remove(id) == null ? -1 : 1;
     }
 
