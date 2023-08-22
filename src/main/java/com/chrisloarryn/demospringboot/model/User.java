@@ -1,11 +1,13 @@
 package com.chrisloarryn.demospringboot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class User {
-    private UUID id;
+    private final UUID id;
     private final String firstName;
     private final String lastName;
     private final Gender gender;
@@ -28,10 +30,7 @@ public class User {
         this.email = email;
     }
 
-    public void setUserUid(UUID userUid) {
-        this.id = userUid;
-    }
-
+    @JsonProperty("id")
     public UUID getId() {
         return id;
     }
@@ -44,6 +43,7 @@ public class User {
         return lastName;
     }
 
+    @JsonIgnore // ignore this field when serializing to JSON
     public Gender getGender() {
         return gender;
     }
@@ -54,6 +54,18 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public Integer getYearOfBirth() {
+        return LocalDate.now().minusYears(age).getYear();
+    }
+
+    public static User newUser(UUID id, User user) {
+        return new User(id, user.getFirstName(), user.getLastName(), user.getGender(), user.getAge(), user.getEmail());
     }
 
     @Override
